@@ -1,38 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!
-{% endblock %}
+{% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-	<section>
-		<style>
-			.important {
-				color: red
-			}
-		</style>
-		<h2>Présentation</h2>
-		<p>Voici un exemple de page HTML avec plusieurs bugs!</p>
-	</section>
+  <section>
+    <style>
+      .important {
+        color: red;
+      }
+    </style>
+    <h2>Présentation</h2>
+    <p>Voici un exemple de page HTML avec plusieurs bugs!</p>
+  </section>
 
-	<div class="content">
-		<p class="important">C'est une section importante!</p>
-		<p>Oups, oublie d'avoir une balise
-			<strong>fermée pour ce texte...</p>
-		</p>
-		<p>C'est une autre section sans fermeture correcte.</p>
-		<img src="image.jpg" alt="Une image"/>
-	</div>
+  <div class="content">
+    <p class="important">C'est une section importante!</p>
+    <p>Oups, oublie d'avoir une balise <strong>fermée pour ce texte...</strong></p>
+    <p>C'est une autre section sans fermeture correcte.</p>
+    <img src="image.jpg" alt="Une photo"/>
+  </div>
 
-	<fieldset>
-		Street:
-		<input type="text"><br/>
-		Town:
-		<input type="text"><br/>
-		Country:
-		<input type="text"><br/>
-	</fieldset>
-	<li>Apple</li>
-	<li>Strawberry</li>
-	<dt>Apple</dt>
-	<dt>Strawberry</dt>
+  <fieldset>
+    <label for="street">Street:</label>
+    <input type="text" id="street"><br/>
+
+    <label for="town">Town:</label>
+    <input type="text" id="town"><br/>
+
+    <label for="country">Country:</label>
+    <input type="text" id="country"><br/>
+  </fieldset>
+
+  <ul>
+    <li>Apple</li>
+    <li>Strawberry</li>
+  </ul>
+
+  <dl>
+    <dt>Apple</dt>
+    <dt>Strawberry</dt>
+  </dl>
 {% endblock %}
