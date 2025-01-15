@@ -1,28 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ContactController!{% endblock %}
+{% block title %}Contact{% endblock %}
 
 {% block body %}
-<h1>Formulaire de Contact</h1>
+  <h2>Formulaire de Contact</h2>
 
-    <!-- Erreur 1 : Utilisation d'un attribut non validé pour l'input -->
-    <form action="/submit" method="POST">
-        <label for="nom">Nom :</label>
-        <!-- Erreur 2 : 'name' manquant sur le champ -->
-        <input type="text" id="nom" required><br><br>
+  {% for message in app.flashes('success') %}
+    <div class="alert alert-success">{{ message }}</div>
+  {% endfor %}
 
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" required><br><br>
+  {% for message in app.flashes('error') %}
+    <div class="alert alert-danger">{{ message }}</div>
+  {% endfor %}
 
-        <!-- Erreur 3 : Valeur par défaut dans un champ de mot de passe -->
-        <label for="password">Mot de passe :</label>
-        <input type="password" id="password" value="123456"><br><br>
+  <form action="{{ path('contact_submit') }}" method="post">
+    <label for="name">Nom :</label>
+    <input type="text" id="name" name="name" required><br/>
 
-        <!-- Erreur 4 : Pas de type pour le champ de message -->
-        <label for="message">Message :</label>
-        <textarea id="message"></textarea><br><br>
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email" required><br/>
 
-        <!-- Erreur 5 : 'action' du formulaire ne correspond pas à une route valide -->
-        <input type="submit" value="Envoyer">
-    </form>
+    <label for="message">Message :</label>
+    <textarea id="message" name="message" required></textarea><br/>
+
+    <button type="submit">Envoyer</button>
+  </form>
 {% endblock %}
